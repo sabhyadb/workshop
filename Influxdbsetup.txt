@@ -1,0 +1,40 @@
+
+make sure the Docker Desktop is open
+In command mode run influxdb in docker
+Run InfluxDB:
+
+docker run -d --name influxdb -p 8086:8086 influxdb:2.7
+
+--to stop and remove
+docker stop <container_id_or_name>
+docker rm <container_id_or_name>
+
+Configure InfluxDB:
+
+Access at http://localhost:8086.
+Create a bucket (production_data) and an API token.
+admin - xxxx
+
+=====
+admin token of the INFLUXDB - xxxxxxxxxx==
+
+Organization - Sabhya
+Bucket - ESP32
+=====
+Run the code given
+======
+ 
+----TO QUERY the data in Influx DB in Script Editor
+from(bucket: "ESP32")
+  |> range(start: -24h)
+  |> filter(fn: (r) => r._measurement == "task_status")
+
+----
+
+
+from(bucket: "2ESPSC")
+  |> range(start: -24h)
+  |> filter(fn: (r) => r._measurement == "task_status")
+
+
+=
